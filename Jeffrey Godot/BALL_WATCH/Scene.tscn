@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scene.gd" type="Script" id=2]
+
+[node name="Scene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="BORDER_VIS2" type="Polygon2D" parent="Border"]
+color = Color( 0, 0, 0, 1 )
+invert_enable = true
+invert_border = 64.0
+polygon = PoolVector2Array( 18, 18, 18, 222, 302, 222, 302, 18 )
+
+[node name="BORDER_VIS" type="Polygon2D" parent="Border"]
+invert_enable = true
+invert_border = 128.0
+polygon = PoolVector2Array( 16, 16, 16, 224, 304, 224, 304, 16 )
+
+[node name="BORDER_COL_1" type="CollisionPolygon2D" parent="Border"]
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( -48, 224, 368, 224, 368, 288, -48, 288, -48, 224 )
+
+[node name="BORDER_COL_2" type="CollisionPolygon2D" parent="Border"]
+visible = false
+position = Vector2( 0, -272 )
+build_mode = 1
+polygon = PoolVector2Array( 368, 224, 368, 288, -48, 288, -48, 224 )
+
+[node name="BORDER_COL_3" type="CollisionPolygon2D" parent="Border"]
+visible = false
+position = Vector2( 0, -208 )
+build_mode = 1
+polygon = PoolVector2Array( -48, 224, 16, 224, 16, 432, -48, 432, -48, 224 )
+
+[node name="BORDER_COL_4" type="CollisionPolygon2D" parent="Border"]
+visible = false
+position = Vector2( 352, -208 )
+build_mode = 1
+polygon = PoolVector2Array( -48, 224, 16, 224, 16, 432, -48, 432, -48, 224 )
+
+[node name="Controls" type="Label" parent="."]
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 216.0
+margin_bottom = 104.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "CONTROLS
+SPACE - Spawn Ball
+LMB - Attract Balls to Mouse
+RMB - Repel Balls from Mouse
+CTRL - Despawn all Balls
+1 - Toggle Ball Watch
+2 - Show this Message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CAM" type="Camera2D" parent="."]
+position = Vector2( 160, 120 )
+current = true
+
+[node name="BALL_WATCH" type="CanvasLayer" parent="."]
+
+[node name="INDICATOR" type="Label" parent="BALL_WATCH"]
+margin_top = 208.0
+margin_right = 320.0
+margin_bottom = 222.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "YOU ARE ON BALL WATCH"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
